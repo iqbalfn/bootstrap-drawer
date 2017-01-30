@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/css/bootstrap-drawer.css': 'src/less/standalone.less'
+                    'dist/css/bootstrap-drawer.min.css': 'src/less/standalone.less'
                 },
                 options: {
                     compress: true
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    'dist/js/drawer.min.js': 'src/js/drawer.js'
+                    'dist/js/bootstrap-drawer.min.js': 'src/js/drawer.js'
                 },
                 options: {
                     compress: true,
