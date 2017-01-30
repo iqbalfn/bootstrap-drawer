@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Bootstrap Drawer</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-light.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .exp-right-menu{ width: 230.5px; top: 20px; }
+    .example {
+        position: relative;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+    }
+    .example .source{
+        padding: 45px 15px 15px;
+    }
+    .example:after {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #959595;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        content: "Example";
+    }
+    .example pre{
+        background-color: #f7f7f9;
+        border: 0 none;
+        border-top: 1px solid #e5e5e5;
+        border-radius: 0;
+        margin: 0;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header"><h1>Bootstrap Drawer <small>drawer.js</small></h1></div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <p>Drawers are streamlined, but flexible, dialog prompt from left or right of the page with minimum required functionality and smart default. This plugin implement many of modal.js feature, in fact this addons is modified version of modal.js.</p>
+                        
+                        <section>
+                            <h2 id="sec-example">Example</h2>
+                            
+                            <p>Click button below to show drawer from left with header, body content, and footer with closer button.</p>
+                            
+                            <div class="example">
+                                <div class="source">
+<button class="btn btn-primary" data-toggle="drawer" data-target="#drawer-1">Open Drawer</button>
+
+<div class="drawer" id="drawer-1">
+    <div class="drawer-dialog">
+        <div class="drawer-header">
+            <h4>Drawer header</h3>
+        </div>
+        <div class="drawer-body">
+            The main content of the drawer.
+        </div>
+        <div class="drawer-footer">
+            <button class="btn btn-default" data-dismiss="drawer">Close</button>
+        </div>
+    </div>
+</div>
+                                </div>
+                                
+                                <pre class="auto-pre"><code class="html"></code></pre>
+                                
+                            </div>
+                        </section>
+                        
+                        <section>
+                            <h2 id="sec-usage">Usage</h2>
+                            
+                            <p>The drawer plugin toggles your hidden content on demand, via data attribute or JavaScript. It also add <code>.drawer-open</code> to the <code>body</code>
+                            to override default scrolling behavior and and generates a <code>.drawer-backdrop</code> to provide a click area for dismissing shown drawer when clicking
+                            outside the drawer.</p>
+                            
+                            <h3>Via data attributes</h3>
+                            
+                            <p>Activate a drawer without writing JavaScript. Set <code>data-toggle="drawer"</code> on a controller element, like a button, along with <code>data-target="#foo"</code>
+                            or <code>href="#foo"</code> to target a specific drawer to toggle.</p>
+                            
+                            <pre class="manual-pre"><code class="html">&lt;button type="button" data-toggle="drawer" data-target="#myDrawer"&gt;Launch drawer&lt;/button&gt;</code></pre>
+                            
+                            <h3>Via JavaScript</h3>
+                            
+                            <p>Call a drawer with id <code>myDrawer</code> with a single line of JavaScript.</p>
+                            
+                            <pre class="manual-pre"><code class="js">$('#myDrawer').drawer(options)</code></pre>
+                        </section>
+                        
+                        <section>
+                            <h2 id="sec-methods">Methods</h2>
+                            
+                            <p><code>.drawer(options)</code></p>
+                            <p>Activate your content as drawer. Accept an optional option <code>object</code>.</p>
+                            <pre class="manual-pre"><code class="js">$('#myDrawer').drawer({ show: true })</code></pre>
+                            
+                            <p><code>.drawer('toggle')</code></p>
+                            <p>Manual toggles a drawer.</p>
+                            <pre class="manual-pre"><code class="js">$('#myDrawer').drawer('toggle')</code></pre>
+                            
+                            <p><code>.drawer('show')</code></p>
+                            <p>Manual opens a drawer.</p>
+                            <pre class="manual-pre"><code class="js">$('#myDrawer').drawer('show')</code></pre>
+                            
+                            <p><code>.drawer('hide')</code></p>
+                            <p>Manual hides a drawer.</p>
+                            <pre class="manual-pre"><code class="js">$('#myDrawer').drawer('hide')</code></pre>
+                        </section>
+                        
+                        <section>
+                            <h2 id="sec-examples">More Examples</h2>
+                            
+                            <h3>Right Placement</h3>
+                            <p>Add attribute <code>data-placement="right"</code> to the <code>.drawer</code> move the drawer to the right of the document.</p>
+                            
+                            <!-- EXAMPLE #1 -->
+                            <div class="example">
+                                <div class="source">
+<button class="btn btn-primary" data-toggle="drawer" data-target="#drawer-2">Right Drawer</button>
+
+<div class="drawer" id="drawer-2" data-placement="right">
+    <div class="drawer-dialog">
+        <div class="drawer-header">
+            <h4>Drawer header</h3>
+        </div>
+        <div class="drawer-body">
+            The main content of the drawer.
+        </div>
+        <div class="drawer-footer">
+            <button class="btn btn-default" data-dismiss="drawer">Close</button>
+        </div>
+    </div>
+</div>
+                                </div>
+                                
+                                <pre class="auto-pre"><code class="html"></code></pre>
+                                
+                            </div>
+                            <!-- EXAMPLE #1 END -->
+                            
+                            <h3>With List Group</h3>
+                            <p>Adding list group to the content by adding it right after <code>.drawer-header</code></p>
+                            
+                            <!-- EXAMPLE #2 -->
+                            <div class="example">
+                                <div class="source">
+<button class="btn btn-primary" data-toggle="drawer" data-target="#drawer-3">More Menu</button>
+
+<div class="drawer" id="drawer-3">
+    <div class="drawer-dialog">
+        <div class="drawer-header">
+            <h4>Drawer header</h3>
+        </div>
+        <div class="list-group">
+            <a class="list-group-item">Link #1</a>
+            <a class="list-group-item">Link #1</a>
+            <a class="list-group-item">Link #1</a>
+            <a class="list-group-item">Link #1</a>
+            <a class="list-group-item">Link #1</a>
+        </div>
+        <div class="drawer-footer">
+            <button class="btn btn-default" data-dismiss="drawer">Close</button>
+        </div>
+    </div>
+</div>
+                                </div>
+                                
+                                <pre class="auto-pre"><code class="html"></code></pre>
+                                
+                            </div>
+                            <!-- EXAMPLE #2 END -->
+                            
+                        </section>
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <div class="list-group exp-right-menu" data-spy="affix" data-offset-top="100">
+                            <a href="#sec-example" class="list-group-item">Example</a>
+                            <a href="#sec-usage" class="list-group-item">Usage</a>
+                            <a href="#sec-methods" class="list-group-item">Methods</a>
+                            <a href="#sec-examples" class="list-group-item">More Examples</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="drawer-backdrop"></div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script src="bootstrap/javascript/bootstrap.js"></script>
+    <script>
+    $(function(){
+        $('.auto-pre').each(function(i,pre){
+            pre = $(pre);
+            var parent = pre.parent();
+            var source = parent.children('.source').html().trim();
+            pre.children('code').html(source.replace(/>/g,'&gt;').replace(/</g,'&lt;'));
+            hljs.highlightBlock(pre.children('code').get(0));
+        });
+        $('.manual-pre').each(function(i,code){
+            hljs.highlightBlock(code);
+        });
+    });
+    </script>
+</body>
+</html>

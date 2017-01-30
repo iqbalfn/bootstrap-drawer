@@ -1,0 +1,113 @@
+//
+// Drawer
+// --------------------------------------------------
+
+// .drawer-open      - body class for killing the scroll
+// .drawer           - container to scroll within
+// .drawer-dialog    - positioning shell for the actual drawer
+// .drawer-content   - actual drawer w/ bg and corners and shit
+
+// Kill the scroll on the body
+.drawer-open {
+  overflow: hidden;
+}
+
+.drawer{
+    position: fixed;
+    left: ( 0 - @drawer-sm );
+    top: 0;
+    height: 100%;
+    width: @drawer-sm;
+    transition:all .3s ease;
+    .box-shadow(0 3px 9px rgba(0,0,0,.5));
+    z-index: @zindex-drawer;
+    visibility: hidden;
+    
+    &.active{
+        left: 0;
+        visibility: visible;
+    }
+    
+    .drawer-dialog{
+        width: 100%;
+        height: 100%;
+        background-color: @drawer-content-bg;
+        border-right: 1px solid @drawer-content-fallback-border-color;
+        border-right: 1px solid @drawer-content-border-color;
+    }
+    
+    &[data-placement=right]{
+        left: auto;
+        right: ( 0 - @drawer-sm );
+        
+        &.active{
+            left: auto;
+            right: 0;
+        }
+        
+        .drawer-dialog{
+            border: 0 none;
+            border-left: 1px solid @drawer-content-fallback-border-color;
+            border-left: 1px solid @drawer-content-border-color;
+        }
+    }
+    
+    .list-group{
+        border-radius: 0;
+        margin-bottom: 0;
+        
+        .list-group-item{
+            border-right: 0 none;
+            border-left: 0 none;
+            
+            &:first-child{
+                border-top: 0 none;
+            }
+            
+            &:last-child{
+                border-bottom: 0 none;
+            }
+        }
+    }
+}
+
+.drawer-backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: @zindex-drawer-background;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+    background: @drawer-backdrop-bg;
+    
+    &.active{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+// Measure scrollbar width for padding body during drawer show/hide
+.drawer-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+.drawer-header,
+.drawer-body,
+.drawer-footer{
+    padding: @drawer-inner-padding;
+}
+
+.drawer-header{
+    border-bottom: 1px solid @drawer-header-border-color;
+}
+
+.drawer-footer{
+    border-top: 1px solid @drawer-footer-border-color;
+}
