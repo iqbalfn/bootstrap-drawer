@@ -73,11 +73,15 @@
             if(e.keyCode === 27)
                 that.hide(e);
         });
+        
+        var e = $.Event('shown.bs.drawer', { relatedTarget: _relatedTarget });
+        setTimeout(function(that,e){that.$element.trigger(e);}, Drawer.TRANSITION_DURATION, that, e);
     }
     
     Drawer.prototype.hide = function(e){
         if(e)
             e.preventDefault();
+        var that = this;
         
         e = $.Event('hide.bs.drawer');
         
@@ -88,12 +92,15 @@
         
         this.isShown = false;
         
-        this.$body.removeClass('drawer-open');
         this.$backdrop.removeClass('active');
         this.$element.removeClass('active');
         this.$body.off('keydown.dismiss.bs.drawer');
         
-        this.resetScrollbar();
+        setTimeout(function(that){
+            that.$element.trigger('hidden.bs.drawer');
+            that.$body.removeClass('drawer-open');
+            that.resetScrollbar();
+        }, Drawer.TRANSITION_DURATION, that);
     }
     
     Drawer.prototype.checkScrollbar = function () {

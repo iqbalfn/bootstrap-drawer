@@ -64,7 +64,7 @@
 <div class="drawer" id="drawer-1">
     <div class="drawer-dialog">
         <div class="drawer-header">
-            <h4>Drawer header</h3>
+            <h4>Drawer header</h4>
         </div>
         <div class="drawer-body">
             The main content of the drawer.
@@ -123,6 +123,41 @@
                         </section>
                         
                         <section>
+                            <h2 id="sec-events">Events</h2>
+                            
+                            <p>Bootstrap drawer exposes a few events for hooking into drawer functionality.<p>
+                            <p>All drawer events are fired at the drawer itself (i.e. at the <code>&lt;div class="drawer"&gt;</code>).</p>
+                            
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr><th>Event Type</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>show.bs.drawer</td>
+                                        <td>This event fires immediately when the show instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>shown.bs.darwer</td>
+                                        <td>This event is fired when the drawer has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hide.bs.drawer</td>
+                                        <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hidden.bs.drawer</td>
+                                        <td>This event is fired when the drawer has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <pre class="manual-pre"><code class="js">$('#myDrawer').on('hidden.bs.drawer', function(e){
+    // do something
+});</code></pre>
+                        </section>
+                        
+                        <section>
                             <h2 id="sec-examples">More Examples</h2>
                             
                             <h3>Right Placement</h3>
@@ -136,7 +171,7 @@
 <div class="drawer" id="drawer-2" data-placement="right">
     <div class="drawer-dialog">
         <div class="drawer-header">
-            <h4>Drawer header</h3>
+            <h4>Drawer header</h4>
         </div>
         <div class="drawer-body">
             The main content of the drawer.
@@ -164,7 +199,7 @@
 <div class="drawer" id="drawer-3">
     <div class="drawer-dialog">
         <div class="drawer-header">
-            <h4>Drawer header</h3>
+            <h4>Drawer header</h4>
         </div>
         <div class="list-group">
             <a class="list-group-item">Link #1</a>
@@ -185,6 +220,36 @@
                             </div>
                             <!-- EXAMPLE #2 END -->
                             
+                            <h3>With Form/Input Group</h3>
+                            <p>Adding form group or input group to the content by adding it right inside <code>.drawer-body</code></p>
+                            
+                            <!-- EXAMPLE #3 -->
+                            <div class="example">
+                                <div class="source">
+<button class="btn btn-primary" data-toggle="drawer" data-target="#drawer-4">Form Control</button>
+
+<div class="drawer" id="drawer-4">
+    <div class="drawer-dialog">
+        <div class="drawer-body">
+            <div class="form-group">
+                <input type="search" placeholder="Search" class="form-control">
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+                                </div>
+                                
+                                <pre class="auto-pre"><code class="html"></code></pre>
+                                
+                            </div>
+                            <!-- EXAMPLE #3 END -->
+                            
                         </section>
                         
                     </div>
@@ -193,6 +258,7 @@
                             <a href="#sec-example" class="list-group-item">Example</a>
                             <a href="#sec-usage" class="list-group-item">Usage</a>
                             <a href="#sec-methods" class="list-group-item">Methods</a>
+                            <a href="#sec-events" class="list-group-item">Events</a>
                             <a href="#sec-examples" class="list-group-item">More Examples</a>
                         </div>
                     </div>
@@ -218,6 +284,11 @@
         $('.manual-pre').each(function(i,code){
             hljs.highlightBlock(code);
         });
+        
+        $('.drawer').on('show.bs.drawer', function(){ console.log('show'); });
+        $('.drawer').on('shown.bs.drawer', function(){ console.log('shown'); });
+        $('.drawer').on('hide.bs.drawer', function(){ console.log('hide'); });
+        $('.drawer').on('hidden.bs.drawer', function(){ console.log('hidden') });
     });
     </script>
 </body>
