@@ -1,0 +1,94 @@
+/*!
+ * Bootstrap Drawer v1.0.0 (http://iqbalfn.com/bootstrap-drawer)
+ * Copyright 2011-2016 Iqbal Fauzi.
+ * Licensed under MIT (https://github.com/iqbalfn/bootstrap-drawer/blob/master/LICENSE)
+ */
+.drawer-open {
+  overflow: hidden;
+}
+.drawer {
+  position: fixed;
+  left: -280px;
+  top: 0;
+  height: 100%;
+  width: 280px;
+  transition: all .3s ease;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  visibility: hidden;
+}
+.drawer.active {
+  left: 0;
+  visibility: visible;
+}
+.drawer .drawer-dialog {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid #999;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: auto;
+}
+.drawer[data-placement=right] {
+  left: auto;
+  right: -280px;
+}
+.drawer[data-placement=right].active {
+  left: auto;
+  right: 0;
+}
+.drawer[data-placement=right] .drawer-dialog {
+  border: 0 none;
+  border-left: 1px solid #999;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.drawer .list-group {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.drawer .list-group .list-group-item {
+  border-radius: 0;
+  border-right: 0 none;
+  border-left: 0 none;
+}
+.drawer .list-group .list-group-item:first-child {
+  border-top: 0 none;
+}
+.drawer .list-group .list-group-item:last-child {
+  border-bottom: 0 none;
+}
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+.drawer-backdrop.active {
+  visibility: visible;
+  opacity: 1;
+}
+.drawer-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+.drawer-header,
+.drawer-body,
+.drawer-footer {
+  padding: 15px;
+}
+.drawer-header {
+  border-bottom: 1px solid #e5e5e5;
+}
+.drawer-footer {
+  border-top: 1px solid #e5e5e5;
+}
