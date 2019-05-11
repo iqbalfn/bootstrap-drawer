@@ -1,5 +1,5 @@
 # bootstrap-drawer
 
-Bootstrap addons that provide drawer ( sidebar menu ) for bootstrap 3.x.x.
+Bootstrap addons that provide drawer ( sidebar menu ) for bootstrap 4.x.x.
 
-For bootstrap 4, please use `master` branch.
+Please check demo page for documentation and example.
