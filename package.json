@@ -1,0 +1,52 @@
+{
+  "name": "bootstrap-drawer",
+  "version": "1.0.0",
+  "description": "Bootstrap Drawer Component",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/bootstrap.scss dist/css/bootstrap-drawer.css",
+    "css-minify": "cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-drawer.min.css dist/css/bootstrap-drawer.css",
+    "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "js-compile": "rollup --config build/rollup.config.js --sourcemap",
+    "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content='dist/js/bootstrap-drawer.js.map',includeSources,url='bootstrap-drawer.min.js.map'\" --output dist/js/bootstrap-drawer.min.js dist/js/bootstrap-drawer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqbalfn/bootstrap-drawer.git"
+  },
+  "keywords": [
+    "ui",
+    "bootstrap",
+    "plugin",
+    "drawer",
+    "sidebar"
+  ],
+  "author": "Iqbal Fauzi <iqbalfawz@gmail.com> (https://iqbalfn.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iqbalfn/bootstrap-drawer/issues"
+  },
+  "homepage": "https://github.com/iqbalfn/bootstrap-drawer#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "autoprefixer": "^9.5.1",
+    "babel-plugin-istanbul": "^5.1.4",
+    "clean-css-cli": "^4.3.0",
+    "grunt": "^1.0.4",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-run": "^0.8.1",
+    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.2",
+    "rollup": "^1.11.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.4",
+    "uglify-js": "^3.5.11"
+  }
+}

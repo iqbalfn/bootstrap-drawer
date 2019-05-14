@@ -1,0 +1,107 @@
+.drawer-open {
+    // Kill the scroll on the body
+    overflow: hidden;
+}
+
+.drawer{
+    position: fixed;
+    width: $drawer-width;
+    top: 0;
+    z-index: $zindex-drawer;
+    height: 100vh;
+
+    &.drawer-right{
+        right: -$drawer-width;
+        border-left: $drawer-border-width solid $drawer-border-color;
+        @include box-shadow($drawer-right-box-shadow);
+    }
+
+    &.drawer-left{
+        left: -$drawer-width;
+        border-right: $drawer-border-width solid $drawer-border-color;
+        @include box-shadow($drawer-left-box-shadow);
+    }
+
+    &.show{
+        transform: $drawer-show-transform;
+
+        &.drawer-right{
+            right: 0;
+        }
+        &.drawer-left{
+            left: 0;
+        }
+    }
+
+    &.slide{
+        @include transition($drawer-transition);
+    }
+}
+
+.drawer-backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $zindex-drawer-backdrop;
+    width: 100vw;
+    height: 100vh;
+    background-color: $drawer-backdrop-bg;
+
+    // Fade for backdrop
+    &.fade { opacity: 0; }
+    &.show { opacity: $drawer-backdrop-opacity; }
+}
+
+.drawer-body{
+    padding: $drawer-header-padding;
+}
+
+.drawer-content{
+    width: 100%;
+    pointer-events: auto;
+    background-color: $drawer-content-bg;
+    color: $drawer-content-color;
+    background-clip: padding-box;
+    outline: 0;
+    height: 100%;
+    overflow-y: auto;
+
+    &.drawer-content-scrollable{
+        display: flex;
+        flex-direction: column;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+
+            &.drawer-body{
+                flex: 1;
+                overflow-y: auto;
+            }
+        }
+    }
+}
+
+.drawer-header{
+    padding: $drawer-header-padding;
+    border-bottom: $drawer-header-border-width solid $drawer-header-border-color;
+}
+
+.drawer-footer{
+    padding: $drawer-inner-padding;
+    border-top: $drawer-footer-border-width solid $drawer-footer-border-color;
+}
+
+.drawer-title {
+    margin-bottom: 0;
+    line-height: $drawer-title-line-height;
+}
+
+// Measure scrollbar width for padding body during drawer show/hide
+.drawer-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}

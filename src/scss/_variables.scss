@@ -1,0 +1,30 @@
+$zindex-drawer-backdrop:             1040 !default;
+$zindex-drawer:                      1050 !default;
+
+$drawer-inner-padding:               1rem !default;
+
+$drawer-width:                       320px;
+$drawer-border-color:                rgba($black, .2) !default;
+$drawer-border-width:                $border-width !default;
+$drawer-left-box-shadow:             .5rem 0 1rem rgba($black, .5) !default;
+$drawer-right-box-shadow:            -.5rem 0 1rem rgba($black, .5) !default;
+
+$drawer-backdrop-bg:                 $black !default;
+$drawer-backdrop-opacity:            .5 !default;
+
+$drawer-content-color:               null !default;
+$drawer-content-bg:                  $white !default;
+
+$drawer-header-padding-y:            1rem !default;
+$drawer-header-padding-x:            1rem !default;
+$drawer-header-padding:              $drawer-header-padding-y $drawer-header-padding-x !default;
+$drawer-header-border-color:         $border-color !default;
+$drawer-header-border-width:         $border-width !default;
+
+$drawer-footer-border-color:         $drawer-header-border-color !default;
+$drawer-footer-border-width:         $drawer-header-border-width !default;
+
+$drawer-title-line-height:           $line-height-base !default;
+
+$drawer-show-transform:              none !default;
+$drawer-transition:                  left .2s ease, right .2s ease !default;

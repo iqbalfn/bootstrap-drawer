@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css">
+    <link rel="stylesheet" href="css/bootstrap-drawer.css">
+
+    <title>Bootstrap Drawer</title>
+
+    <style>
+        h1{ margin-top: 80px; }
+        h2,h3{ margin-top: 40px; }
+        .example{ border: 4px solid #eee; margin-bottom:30px;}
+        .example-preview{ padding: 1.5rem; }
+        .example > pre{ border-top: 4px solid #eee;margin:0; }
+        .example-static{
+            position: relative;
+            height: 500px;
+            background-color: #eee;
+        }
+        .drawer-static{ position: absolute; height: 100%; z-index: 1000;}
+        .highlihgt-grid .row + .row{ margin-top: 1rem;}
+        .highlihgt-grid [class^="col-"]{
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            background-color: rgba(86,61,124,.15);
+            border: 1px solid rgba(86,61,124,.2);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">Bootstrap Drawer</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/iqbalfn/bootstrap-drawer">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/iqbalfn/bootstrap-drawer/releases">Download</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1>Drawer</h1>
+                <p class="lead">Use Bootstrap's JavaScript drawer plugin to add side content to your site for menu, options, or completely custom content.</p>
+
+                <section>
+                    <h2>How it works</h2>
+                    <article>
+                        <p>Before getting started with Bootstrap's drawer component, be sure to read the following points.</p>
+                        <ul>
+                            <li>Drawers are build with HTML, CSS, and JavaScript. They're positioned over everything else in the document and remove scroll from the <code>&lt;body&gt;</code> so that drawer content scrolls instead.</li>
+                            <li>Clicking on the drawer "backdrop" will automatically close the drawer.</li>
+                            <li>Bootstrap only supports one drawer window at a time. Nested drawers aren't supported as we believe them to be poor user experiences.</li>
+                            <li>Drawer use <code>position: fixed</code>, which can sometimes be a bit particular about its rendering. Whenever possible, place your drawer HTML in a top-level position to avoid potential interference from other elements. You'll likely run into issues when nesting a <code>.drawer</code> within another fixed element.</li>
+                            <li>Once again, due to <code>position: fixed</code>, there are some caveats with using drawers on mobile devices.</li>
+                            <li>Due to how HTML5 defines its semantics, the <code>autofocus</code> HTML attribute has no effect in Bootstrap drawers. To achieve the same effect, use some custom JavaScript:</li>
+                        </ul>
+
+                        <pre><code class="language-js">
+$('#my-drawer').on('show.bs.drawer', function(){
+    $('#my-input').trigger('focus');
+});                     </code></pre>
+
+                        <p>Keep reading for demos and usage guidelines.</p>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Examples</h2>
+                    <article>
+                        <section>
+                            <h3>Drawer Components</h3>
+
+                            <article>
+                                <p>Below is a <em>static</em> drawer example (meaning its <code>position</code> and <code>display</code> have been overridden). Included are the drawer header, drawer body (required for padding), and drawer footer (optional).</p>
+
+                                <div class="example">
+                                    <div class="example-static">
+                                        <div class="drawer drawer-left drawer-static show">
+                                            <div class="drawer-content drawer-content-scrollable">
+                                                <div class="drawer-header">
+                                                    <h5 class="drawer-title">Drawer Title</h5>
+                                                </div>
+                                                <div class="drawer-body">
+                                                    Drawer body text goes here.
+                                                </div>
+                                                <div class="drawer-footer">
+                                                    Drawer footer
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <pre><code class="language-html">
+&lt;div class=&quot;drawer drawer-left slide show&quot;&gt;
+    &lt;div class=&quot;drawer-content drawer-content-scrollable&quot;&gt;
+        &lt;div class=&quot;drawer-header&quot;&gt;
+            &lt;h5 class=&quot;drawer-title&quot;&gt;Drawer Title&lt;/h5&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-body&quot;&gt;
+            Drawer body text goes here.
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-footer&quot;&gt;
+            Drawer footer
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Live Demo</h3>
+
+                            <article>
+                                <p>Toggle a working drawer demo by clicking the button below. It will slide right from left of the document.</p>
+                                <div class="example">
+                                    <div class="example-preview">
+                                        <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-1">
+                                          Launch demo drawer
+                                        </button>
+                                        <div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="drawer-1-title" aria-hidden="true" id="drawer-1">
+                                            <div class="drawer-content drawer-content-scrollable" role="document">
+                                                <div class="drawer-header">
+                                                    <h4 class="drawer-title" id="drawer-1-title">Drawer Title</h4>
+                                                </div>
+                                                <div class="drawer-body">
+                                                    <p>Drawer body</p>
+                                                    <button type="button" class="btn btn-secondary btn-block" data-dismiss="drawer" aria-label="Close">
+                                                        Close
+                                                    </button>
+                                                </div>
+                                                <div class="drawer-footer">Drawer footer</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <pre><code class="language-html">
+&lt;!-- Button trigger drawer --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#drawer-1&quot;&gt;
+    Launch demo drawer
+&lt;/button&gt;
+
+&lt;!-- Drawer --&gt;
+&lt;div class=&quot;drawer drawer-left slide&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;drawer-1-title&quot; aria-hidden=&quot;true&quot; id=&quot;drawer-1&quot;&gt;
+    &lt;div class=&quot;drawer-content drawer-content-scrollable&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;drawer-header&quot;&gt;
+            &lt;h4 class=&quot;drawer-title&quot; id=&quot;drawer-1-title&quot;&gt;Drawer Title&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-body&quot;&gt;
+            &lt;p&gtDrawer body&lt;/p&gt
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-block&quot; data-dismiss=&quot;drawer&quot; aria-label=&quot;Close&quot;&gt;
+                Close
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-footer&quot;&gt;Drawer footer&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Scrolling long content</h3>
+
+                            <article>
+                                <p>When drawers become too long for the user's viewport, they <code>.drawer-content</code> become scrolled. Try the demo below to see what we mean.</p>
+
+                                <div class="example">
+                                    <div class="example-preview">
+                                        <!-- Button trigger drawer -->
+                                        <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-2">
+                                          Launch demo drawer
+                                        </button>
+                                        <!-- Drawer -->
+                                        <div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="drawer-2-title" aria-hidden="true" id="drawer-2">
+                                            <div class="drawer-content" role="document">
+                                                <div class="drawer-header">
+                                                    <h4 class="drawer-title" id="drawer-2-title">Drawer Title</h4>
+                                                </div>
+                                                <div class="drawer-body">
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                </div>
+                                                <div class="drawer-footer">Drawer footer</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <pre><code class="language-html">
+&lt;!-- Button trigger drawer --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#drawer-2&quot;&gt;
+    Launch demo drawer
+&lt;/button&gt;
+
+&lt;!-- Drawer --&gt;
+&lt;div class=&quot;drawer drawer-left slide&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;drawer-2-title&quot; aria-hidden=&quot;true&quot; id=&quot;drawer-2&quot;&gt;
+    &lt;div class=&quot;drawer-content&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;drawer-header&quot;&gt;
+            &lt;h4 class=&quot;drawer-title&quot; id=&quot;drawer-2-title&quot;&gt;Drawer Title&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-body&quot;&gt;
+            ...
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-footer&quot;&gt;Drawer footer&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+
+                                <p>You can also create a scrollable drawer that allows scroll the drawer body by adding <code>.drawer-content-scrollable</code> to <code>.drawer-content</code>.</p>
+
+                                <div class="example">
+                                    <div class="example-preview">
+                                        <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-3">
+                                            Launch demo drawer
+                                        </button>
+                                        <div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="drawer-3-title" aria-hidden="true" id="drawer-3">
+                                            <div class="drawer-content drawer-content-scrollable" role="document">
+                                                <div class="drawer-header">
+                                                    <h4 class="drawer-title" id="drawer-3-title">Drawer Title</h4>
+                                                </div>
+                                                <div class="drawer-body">
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                </div>
+                                                <div class="drawer-footer">Drawer footer</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <pre><code class="language-html">
+&lt;!-- Button trigger drawer --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#drawer-3&quot;&gt;
+    Launch demo drawer
+&lt;/button&gt;
+
+&lt;!-- Drawer --&gt;
+&lt;div class=&quot;drawer drawer-left slide&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;drawer-3-title&quot; aria-hidden=&quot;true&quot; id=&quot;drawer-3&quot;&gt;
+    &lt;div class=&quot;drawer-content drawer-content-scrollable&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;drawer-header&quot;&gt;
+            &lt;h4 class=&quot;drawer-title&quot; id=&quot;drawer-3-title&quot;&gt;Drawer Title&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-body&quot;&gt;
+            ...
+        &lt;/div&gt;
+        &lt;div class=&quot;drawer-footer&quot;&gt;Drawer footer&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Using the grid</h3>
+
+                            <article>
+                                <p>Utilize the Bootstrap grid system within a drawer by nesting <code>.container-fluid</code> within the <code>.drawer-body</code>. Then, use the normal grid system classes as you would anywhere else.</p>
+
+                                <div class="example">
+                                    <div class="example-preview">
+                                        <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-4">
+                                            Launch demo drawer
+                                        </button>
+                                        <div class="drawer drawer-left slide" tabindex="-1" role="dialog" aria-labelledby="drawer-4-title" aria-hidden="true" id="drawer-4">
+                                            <div class="drawer-content drawer-content-scrollable" role="document">
+                                                <div class="drawer-header">
+                                                    <h4 class="drawer-title" id="drawer-4-title">Drawer Title</h4>
+                                                </div>
+                                                <div class="drawer-body highlihgt-grid">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                .col-md-4
+                                                            </div>
+                                                            <div class="col-md-4 ml-auto">
+                                                                .col-md-4 .ml-auto
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3 ml-auto">
+                                                                .col-md-3 .ml-auto
+                                                            </div>
+                                                            <div class="col-md-2 ml-auto">
+                                                                .col-md-2 .ml-auto
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 ml-auto">
+                                                                .col-md-6 .ml-auto
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-9">
+                                                                Level 1: .col-sm-9
+                                                                <div class="row">
+                                                                    <div class="col-8 col-sm-6">
+                                                                        Level 2: .col-8 .col-sm-6
+                                                                    </div>
+                                                                    <div class="col-4 col-sm-6">
+                                                                        Level 2: .col-4 .col-sm-6
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <pre><code class="language-html">
+&lt;div class=&quot;drawer-body&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-md-4&quot;&gt;
+                .col-md-4
+            &lt;/div&gt;
+            &lt;div class=&quot;col-md-4 ml-auto&quot;&gt;
+                .col-md-4 .ml-auto
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-md-3 ml-auto&quot;&gt;
+                .col-md-3 .ml-auto
+            &lt;/div&gt;
+            &lt;div class=&quot;col-md-2 ml-auto&quot;&gt;
+                .col-md-2 .ml-auto
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-md-6 ml-auto&quot;&gt;
+                .col-md-6 .ml-auto
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-9&quot;&gt;
+                Level 1: .col-sm-9
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-8 col-sm-6&quot;&gt;
+                        Level 2: .col-8 .col-sm-6
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-4 col-sm-6&quot;&gt;
+                        Level 2: .col-4 .col-sm-6
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Change animation</h3>
+
+                            <article>
+                                <p>The <code>$drawer-transition</code> variable determines the transform state of <code>.drawer</code> on getting in the document.</p>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Remove animation</h3>
+
+                            <article>
+                                <p>For drawer that simply appear rather than slide in to view, remove the <code>slide</code> class from your drawer markup.</p>
+
+                                <div class="example">
+                                    <div class="example-preview">
+                                        <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-5">
+                                            Launch demo drawer
+                                        </button>
+                                        <div class="drawer drawer-left" tabindex="-1" role="dialog" aria-labelledby="drawer-5-title" aria-hidden="true" id="drawer-5">
+                                            <div class="drawer-content drawer-content-scrollable" role="document">
+                                                <div class="drawer-header">
+                                                    <h4 class="drawer-title" id="drawer-5-title">Drawer Title</h4>
+                                                </div>
+                                                <div class="drawer-body">
+                                                    Drawer Body
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <pre><code class="language-html">
+&lt;div class=&quot;drawer drawer-left&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;...&quot; aria-hidden=&quot;true&quot;&gt;
+    ...
+&lt;/div&gt;
+                                    </code></pre>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Accessibility</h3>
+
+                            <article>
+                                <p>Be sure to add <code>role="dialog"</code> and <code>aria-labelledby="..."</code>, referencing the drawer title, to <code>.drawer</code>, and <code>role="document"</code> to the <code>.drawer-content</code> itself. Additionally, you may give a description of your drawer dialog with <code>aria-describedby</code> on <code>.drawer</code>.</p>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Embedding YouTube videos</h3>
+
+                            <article>
+                                <p>Embedding YouTube videos in drawers requires additional JavaScript not in Bootstrap Drawer to automatically stop playback and more.</p>
+                            </article>
+                        </section>
+
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Usage</h2>
+                    <article>
+                        <p>The drawer plugin toggles your hidden on demand, via data attributes or JavaScript. It also add <code>.drawer-open</code> to the <code>&lt;body&gt;</code> to override default scrolling behaviour and generates a <code>.drawer-backdrop</code> to provide a click area for dismissing shown drawers when clicking outsite the drawer.</p>
+
+                        <section>
+                            <h3>Via data attributes</h3>
+                            <article>
+                                <p>Activate a drawer without writing JavaScript. Set <code>data-toggle="drawer"</code> on a controller element, like a button, along with a <code>data-target="#foo"</code> or <code>href="#foo"</code> to target a specific drawer to toggle</p>
+
+                                <pre><code class="language-html">
+&lt;button type=&quot;button&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#myDrawer&quot;&gt;Launch modal&lt;/button&gt;
+                                </code></pre>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Via JavaScript</h3>
+                            <article>
+                                <p>Call a drawer with id <code>myDrawer</code> with a single line of JavaScript</p>
+
+                                <pre><code class="language-js">
+$('#myDrawer').drawer(options);
+                                </code></pre>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Options</h3>
+                            <article>
+                                <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
+
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>backdrop</td>
+                                            <td>boolean or string <code>'static'</code></td>
+                                            <td>true</td>
+                                            <td>Include a drawer-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the drawer on click.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>keyboard</td>
+                                            <td>boolean</td>
+                                            <td>true</td>
+                                            <td>Close the drawer when escape key pressed.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>focus</td>
+                                            <td>boolean</td>
+                                            <td>true</td>
+                                            <td>Puts the focus on the drawer when initialized.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>show</td>
+                                            <td>boolean</td>
+                                            <td>true</td>
+                                            <td>Show the drawer when initialized.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Methods</h3>
+                            <p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In additional, a method call on a <strong>transition component will be ignored.</strong></p>
+
+                            <article>
+                                <h4><code>.drawer(options)</code></h4>
+                                <p>Activate your content as a drawer. Accept an optional options <code>object</code>.</p>
+
+                                <pre><code class="language-js">
+$('#my-drawer').drawer({
+    keyboard: false
+})
+                                </code></pre>
+                            </article>
+                            <article>
+                                <h4><code>.drawer('toggle')</code></h4>
+                                <p>Manullay toggles a drawer. <strong>Returns to the caller before the drawer has actually been shown or hidden</strong> (i.e before <code>shown.bs.drawer</code> or <code>hidden.bs.drawer</code> event occurs).</p>
+
+                                <pre><code class="language-js">
+$('#my-drawer').drawer('toggle')
+                                </code></pre>
+                            </article>
+                            <article>
+                                <h4><code>.drawer('show')</code></h4>
+                                <p>Manually opens a drawer. <strong>Returns to the caller before the drawer has actually been shown</strong> (i.e before <code>shown.bs.drawer</code> event occurs).</p>
+
+                                <pre><code class="language-js">
+$('#my-drawer').drawer('show')
+                                </code></pre>
+                            </article>
+                            <article>
+                                <h4><code>.drawer('hide')</code></h4>
+                                <p>Manually hides a drawer. <strong>Returns to the caller before the drawer has actually been hidden</strong> (i.e before <code>hidden.bs.drawer</code> event occurs).</p>
+
+                                <pre><code class="language-js">
+$('#my-drawer').drawer('hide')
+                                </code></pre>
+                            </article>
+                            <article>
+                                <h4><code>.drawer('dispose')</code></h4>
+                                <p>Destroys an element's drawer.</p>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Events</h3>
+                            <p>Bootstrap's drawer class exposes a few events for hooking into drawer functionality. All drawer events are fired at the drawer itself (i.e at the <code>&lt;div class="drawer"&gt;</code>).</p>
+
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr><th>Event Type</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>show.bs.drawer</td>
+                                        <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>shown.bs.drawer</td>
+                                        <td>This event is fired when the drawer has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hide.bs.drawer</td>
+                                        <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hidden.bs.drawer</td>
+                                        <td>This event is fired when the drawer has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <pre><code class="language-js">
+$('#my-drawer').on('hidden.bs.drawer', function(e){
+    // do something...
+})
+                            </code></pre>
+                        </section>
+
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js" data-manual></script>
+    <script src="js/bootstrap-drawer.js"></script>
+    <script>
+        $('[class^="language"]').each(function(i,e){
+            e.innerHTML = e.innerHTML.trim();
+            Prism.highlightElement(e);
+        });
+    </script>
+</body>
+</html>

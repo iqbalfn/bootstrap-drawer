@@ -1,0 +1,120 @@
+/*!
+ * Bootstrap Drawer v4.0.0 (https://iqbalfn.github.io/bootstrap-drawer/)
+ * Copyright 2019 Iqbal Fauzi
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+.drawer-open {
+  overflow: hidden;
+}
+
+.drawer {
+  position: fixed;
+  width: 320px;
+  top: 0;
+  z-index: 1050;
+  height: 100vh;
+}
+
+.drawer.drawer-right {
+  right: -320px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.drawer.drawer-left {
+  left: -320px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.drawer.show {
+  -webkit-transform: none;
+  transform: none;
+}
+
+.drawer.show.drawer-right {
+  right: 0;
+}
+
+.drawer.show.drawer-left {
+  left: 0;
+}
+
+.drawer.slide {
+  transition: left 0.2s ease, right 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer.slide {
+    transition: none;
+  }
+}
+
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.drawer-backdrop.fade {
+  opacity: 0;
+}
+
+.drawer-backdrop.show {
+  opacity: 0.5;
+}
+
+.drawer-body {
+  padding: 1rem 1rem;
+}
+
+.drawer-content {
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.drawer-content.drawer-content-scrollable {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-content.drawer-content-scrollable > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-content.drawer-content-scrollable > div.drawer-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.drawer-header {
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.drawer-footer {
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.drawer-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.drawer-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+/*# sourceMappingURL=bootstrap-drawer.css.map */
