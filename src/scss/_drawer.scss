@@ -9,6 +9,7 @@
     top: 0;
     z-index: $zindex-drawer;
     height: 100vh;
+    display: none;
 
     &.drawer-right{
         right: -$drawer-width;

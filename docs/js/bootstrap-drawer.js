@@ -392,6 +392,7 @@
 
       var transition = $(this._element).hasClass(ClassName.SLIDE);
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) document.body.appendChild(this._element);
+      this._element.style.display = 'block';
 
       this._element.removeAttribute('aria-hidden');
 
@@ -448,6 +449,8 @@
 
     _proto._hideDrawer = function _hideDrawer() {
       var _this6 = this;
+
+      this._element.style.display = 'none';
 
       this._element.setAttribute('aria-hidden', true);
 

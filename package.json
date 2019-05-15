@@ -7,9 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
+    "css": "npm run css-compile && npm run css-prefix && npm run css-minify",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/bootstrap.scss dist/css/bootstrap-drawer.css",
     "css-minify": "cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-drawer.min.css dist/css/bootstrap-drawer.css",
     "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "js": "npm run js-compile && npm run js-minify",
     "js-compile": "rollup --config build/rollup.config.js --sourcemap",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content='dist/js/bootstrap-drawer.js.map',includeSources,url='bootstrap-drawer.min.js.map'\" --output dist/js/bootstrap-drawer.min.js dist/js/bootstrap-drawer.js"
   },

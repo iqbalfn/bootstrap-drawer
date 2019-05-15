@@ -219,6 +219,7 @@ class Drawer {
             this._element.parentNode.nodeType !== Node.ELEMENT_NODE)
             document.body.appendChild(this._element)
 
+        this._element.style.display = 'block'
         this._element.removeAttribute('aria-hidden')
         this._element.setAttribute('aria-modal', true)
 
@@ -281,6 +282,7 @@ class Drawer {
     }
     
     _hideDrawer() {
+        this._element.style.display = 'none'
         this._element.setAttribute('aria-hidden', true)
         this._element.removeAttribute('aria-modal')
         this._isTransitioning = false
