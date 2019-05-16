@@ -4,8 +4,8 @@ const year = new Date().getFullYear()
 
 function getBanner(pluginFilename) {
   return `/*!
-  * Bootstrap v4.3.1-admin-ui (https://getbootstrap.com/)
-  * Copyright 2011-${year} The Bootstrap Authors Author And MIM Dev
+  * Bootstrap Drawer v4.0.0 (https://iqbalfn.github.io/bootstrap-drawer/)
+  * Copyright 2019 Iqbal Fauzi
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */`
 }
