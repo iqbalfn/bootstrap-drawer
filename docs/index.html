@@ -15,6 +15,7 @@
         .example{ border: 4px solid #eee; margin-bottom:30px;}
         .example-preview{ padding: 1.5rem; }
         .example > pre{ border-top: 4px solid #eee;margin:0; }
+        .no-html{ display: none; }
         .example-static{
             position: relative;
             height: 500px;
@@ -77,10 +78,13 @@
                             <li>Due to how HTML5 defines its semantics, the <code>autofocus</code> HTML attribute has no effect in Bootstrap drawers. To achieve the same effect, use some custom JavaScript:</li>
                         </ul>
 
-                        <pre><code class="language-js">
-$('#my-drawer').on('show.bs.drawer', function(){
-    $('#my-input').trigger('focus');
-});                     </code></pre>
+                        <div class="example">
+                            <div class="example-preview source-code no-html" data-hl="js">
+                                $('#my-other').on('show.bs.drawer', function(){
+                                    $('#my-input').trigger('focus');
+                                })
+                            </div>
+                        </div>
 
                         <p>Keep reading for demos and usage guidelines.</p>
                     </article>
@@ -96,7 +100,7 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                 <p>Below is a <em>static</em> drawer example (meaning its <code>position</code> and <code>display</code> have been overridden). Included are the drawer header, drawer body (required for padding), and drawer footer (optional).</p>
 
                                 <div class="example">
-                                    <div class="example-static">
+                                    <div class="example-preview source-code example-static" data-hl="html">
                                         <div class="drawer drawer-left drawer-static show">
                                             <div class="drawer-content drawer-content-scrollable">
                                                 <div class="drawer-header">
@@ -111,21 +115,6 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                             </div>
                                         </div>
                                     </div>
-                                    <pre><code class="language-html">
-&lt;div class=&quot;drawer drawer-left slide show&quot;&gt;
-    &lt;div class=&quot;drawer-content drawer-content-scrollable&quot;&gt;
-        &lt;div class=&quot;drawer-header&quot;&gt;
-            &lt;h5 class=&quot;drawer-title&quot;&gt;Drawer Title&lt;/h5&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-body&quot;&gt;
-            Drawer body text goes here.
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-footer&quot;&gt;
-            Drawer footer
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                    </code></pre>
                                 </div>
                             </article>
                         </section>
@@ -136,7 +125,7 @@ $('#my-drawer').on('show.bs.drawer', function(){
                             <article>
                                 <p>Toggle a working drawer demo by clicking the button below. It will slide right from left of the document.</p>
                                 <div class="example">
-                                    <div class="example-preview">
+                                    <div class="example-preview source-code" data-hl="html">
                                         <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-1">
                                           Launch demo drawer
                                         </button>
@@ -155,28 +144,6 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                             </div>
                                         </div>
                                     </div>
-                                    <pre><code class="language-html">
-&lt;!-- Button trigger drawer --&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#drawer-1&quot;&gt;
-    Launch demo drawer
-&lt;/button&gt;
-
-&lt;!-- Drawer --&gt;
-&lt;div class=&quot;drawer drawer-left slide&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;drawer-1-title&quot; aria-hidden=&quot;true&quot; id=&quot;drawer-1&quot;&gt;
-    &lt;div class=&quot;drawer-content drawer-content-scrollable&quot; role=&quot;document&quot;&gt;
-        &lt;div class=&quot;drawer-header&quot;&gt;
-            &lt;h4 class=&quot;drawer-title&quot; id=&quot;drawer-1-title&quot;&gt;Drawer Title&lt;/h4&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-body&quot;&gt;
-            &lt;p&gtDrawer body&lt;/p&gt
-            &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary btn-block&quot; data-dismiss=&quot;drawer&quot; aria-label=&quot;Close&quot;&gt;
-                Close
-            &lt;/button&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-footer&quot;&gt;Drawer footer&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                    </code></pre>
                                 </div>
                             </article>
                         </section>
@@ -188,7 +155,7 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                 <p>When drawers become too long for the user's viewport, they <code>.drawer-content</code> become scrolled. Try the demo below to see what we mean.</p>
 
                                 <div class="example">
-                                    <div class="example-preview">
+                                    <div class="example-preview source-code" data-hl="html">
                                         <!-- Button trigger drawer -->
                                         <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-2">
                                           Launch demo drawer
@@ -211,62 +178,17 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
                                                     <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
                                                 </div>
                                                 <div class="drawer-footer">Drawer footer</div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <pre><code class="language-html">
-&lt;!-- Button trigger drawer --&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#drawer-2&quot;&gt;
-    Launch demo drawer
-&lt;/button&gt;
-
-&lt;!-- Drawer --&gt;
-&lt;div class=&quot;drawer drawer-left slide&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;drawer-2-title&quot; aria-hidden=&quot;true&quot; id=&quot;drawer-2&quot;&gt;
-    &lt;div class=&quot;drawer-content&quot; role=&quot;document&quot;&gt;
-        &lt;div class=&quot;drawer-header&quot;&gt;
-            &lt;h4 class=&quot;drawer-title&quot; id=&quot;drawer-2-title&quot;&gt;Drawer Title&lt;/h4&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-body&quot;&gt;
-            ...
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-footer&quot;&gt;Drawer footer&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                    </code></pre>
                                 </div>
 
                                 <p>You can also create a scrollable drawer that allows scroll the drawer body by adding <code>.drawer-content-scrollable</code> to <code>.drawer-content</code>.</p>
 
                                 <div class="example">
-                                    <div class="example-preview">
+                                    <div class="example-preview source-code" data-hl="html">
                                         <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-3">
                                             Launch demo drawer
                                         </button>
@@ -287,55 +209,11 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
                                                     <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-
-                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
                                                 </div>
                                                 <div class="drawer-footer">Drawer footer</div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <pre><code class="language-html">
-&lt;!-- Button trigger drawer --&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#drawer-3&quot;&gt;
-    Launch demo drawer
-&lt;/button&gt;
-
-&lt;!-- Drawer --&gt;
-&lt;div class=&quot;drawer drawer-left slide&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;drawer-3-title&quot; aria-hidden=&quot;true&quot; id=&quot;drawer-3&quot;&gt;
-    &lt;div class=&quot;drawer-content drawer-content-scrollable&quot; role=&quot;document&quot;&gt;
-        &lt;div class=&quot;drawer-header&quot;&gt;
-            &lt;h4 class=&quot;drawer-title&quot; id=&quot;drawer-3-title&quot;&gt;Drawer Title&lt;/h4&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-body&quot;&gt;
-            ...
-        &lt;/div&gt;
-        &lt;div class=&quot;drawer-footer&quot;&gt;Drawer footer&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                    </code></pre>
                                 </div>
 
                             </article>
@@ -348,7 +226,7 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                 <p>Utilize the Bootstrap grid system within a drawer by nesting <code>.container-fluid</code> within the <code>.drawer-body</code>. Then, use the normal grid system classes as you would anywhere else.</p>
 
                                 <div class="example">
-                                    <div class="example-preview">
+                                    <div class="example-preview source-code" data-hl="html">
                                         <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-4">
                                             Launch demo drawer
                                         </button>
@@ -398,47 +276,6 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                             </div>
                                         </div>
                                     </div>
-
-                                    <pre><code class="language-html">
-&lt;div class=&quot;drawer-body&quot;&gt;
-    &lt;div class=&quot;container-fluid&quot;&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-md-4&quot;&gt;
-                .col-md-4
-            &lt;/div&gt;
-            &lt;div class=&quot;col-md-4 ml-auto&quot;&gt;
-                .col-md-4 .ml-auto
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-md-3 ml-auto&quot;&gt;
-                .col-md-3 .ml-auto
-            &lt;/div&gt;
-            &lt;div class=&quot;col-md-2 ml-auto&quot;&gt;
-                .col-md-2 .ml-auto
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-md-6 ml-auto&quot;&gt;
-                .col-md-6 .ml-auto
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;row&quot;&gt;
-            &lt;div class=&quot;col-sm-9&quot;&gt;
-                Level 1: .col-sm-9
-                &lt;div class=&quot;row&quot;&gt;
-                    &lt;div class=&quot;col-8 col-sm-6&quot;&gt;
-                        Level 2: .col-8 .col-sm-6
-                    &lt;/div&gt;
-                    &lt;div class=&quot;col-4 col-sm-6&quot;&gt;
-                        Level 2: .col-4 .col-sm-6
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-                                    </code></pre>
                                 </div>
                             </article>
                         </section>
@@ -458,7 +295,7 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                 <p>For drawer that simply appear rather than slide in to view, remove the <code>slide</code> class from your drawer markup.</p>
 
                                 <div class="example">
-                                    <div class="example-preview">
+                                    <div class="example-preview source-code" data-hl="html">
                                         <button type="button" class="btn btn-primary" data-toggle="drawer" data-target="#drawer-5">
                                             Launch demo drawer
                                         </button>
@@ -473,11 +310,6 @@ $('#my-drawer').on('show.bs.drawer', function(){
                                             </div>
                                         </div>
                                     </div>
-                                    <pre><code class="language-html">
-&lt;div class=&quot;drawer drawer-left&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;...&quot; aria-hidden=&quot;true&quot;&gt;
-    ...
-&lt;/div&gt;
-                                    </code></pre>
                                 </div>
                             </article>
                         </section>
@@ -511,9 +343,11 @@ $('#my-drawer').on('show.bs.drawer', function(){
                             <article>
                                 <p>Activate a drawer without writing JavaScript. Set <code>data-toggle="drawer"</code> on a controller element, like a button, along with a <code>data-target="#foo"</code> or <code>href="#foo"</code> to target a specific drawer to toggle</p>
 
-                                <pre><code class="language-html">
-&lt;button type=&quot;button&quot; data-toggle=&quot;drawer&quot; data-target=&quot;#myDrawer&quot;&gt;Launch drawer&lt;/button&gt;
-                                </code></pre>
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="html">
+                                        <button type="button" data-toggle="drawer" data-target="#myDrawer">Launch drawer</button>
+                                    </div>
+                                </div>
                             </article>
                         </section>
 
@@ -522,9 +356,11 @@ $('#my-drawer').on('show.bs.drawer', function(){
                             <article>
                                 <p>Call a drawer with id <code>myDrawer</code> with a single line of JavaScript</p>
 
-                                <pre><code class="language-js">
-$('#myDrawer').drawer(options);
-                                </code></pre>
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#myDrawer').drawer(options);
+                                    </div>
+                                </div>
                             </article>
                         </section>
 
@@ -575,35 +411,43 @@ $('#myDrawer').drawer(options);
                                 <h4><code>.drawer(options)</code></h4>
                                 <p>Activate your content as a drawer. Accept an optional options <code>object</code>.</p>
 
-                                <pre><code class="language-js">
-$('#my-drawer').drawer({
-    keyboard: false
-})
-                                </code></pre>
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-drawer').drawer({
+                                            keyboard: false
+                                        })
+                                    </div>
+                                </div>
                             </article>
                             <article>
                                 <h4><code>.drawer('toggle')</code></h4>
                                 <p>Manullay toggles a drawer. <strong>Returns to the caller before the drawer has actually been shown or hidden</strong> (i.e before <code>shown.bs.drawer</code> or <code>hidden.bs.drawer</code> event occurs).</p>
 
-                                <pre><code class="language-js">
-$('#my-drawer').drawer('toggle')
-                                </code></pre>
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-drawer').drawer('toggle')
+                                    </div>
+                                </div>
                             </article>
                             <article>
                                 <h4><code>.drawer('show')</code></h4>
                                 <p>Manually opens a drawer. <strong>Returns to the caller before the drawer has actually been shown</strong> (i.e before <code>shown.bs.drawer</code> event occurs).</p>
 
-                                <pre><code class="language-js">
-$('#my-drawer').drawer('show')
-                                </code></pre>
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-drawer').drawer('show')
+                                    </div>
+                                </div>
                             </article>
                             <article>
                                 <h4><code>.drawer('hide')</code></h4>
                                 <p>Manually hides a drawer. <strong>Returns to the caller before the drawer has actually been hidden</strong> (i.e before <code>hidden.bs.drawer</code> event occurs).</p>
 
-                                <pre><code class="language-js">
-$('#my-drawer').drawer('hide')
-                                </code></pre>
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-drawer').drawer('hide')
+                                    </div>
+                                </div>
                             </article>
                             <article>
                                 <h4><code>.drawer('dispose')</code></h4>
@@ -639,11 +483,13 @@ $('#my-drawer').drawer('hide')
                                 </tbody>
                             </table>
 
-                            <pre><code class="language-js">
-$('#my-drawer').on('hidden.bs.drawer', function(e){
-    // do something...
-})
-                            </code></pre>
+                            <div class="example">
+                                <div class="example-preview source-code no-html" data-hl="js">
+                                    $('#my-drawer').on('hidden.bs.drawer', function(e){
+                                        // do something...
+                                    })
+                                </div>
+                            </div>
                         </section>
 
                     </article>
@@ -652,16 +498,12 @@ $('#my-drawer').on('hidden.bs.drawer', function(e){
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js" data-manual></script>
+    <script src="js/source.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js" data-manual></script>
     <script src="js/bootstrap-drawer.js"></script>
-    <script>
-        $('[class^="language"]').each(function(i,e){
-            e.innerHTML = e.innerHTML.trim();
-            Prism.highlightElement(e);
-        });
-    </script>
 </body>
 </html>

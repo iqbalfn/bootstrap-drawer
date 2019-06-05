@@ -224,7 +224,7 @@ class Drawer {
         this._element.setAttribute('aria-modal', true)
 
         if ($(this._content).hasClass(ClassName.SCROLLABLE))
-            this._content.querySelector(Selector.MODAL_BODY).scrollTop = 0
+            (this._content.querySelector(Selector.MODAL_BODY)||{}).scrollTop = 0
         else
             this._element.scrollTop = 0
 

@@ -86,6 +86,10 @@
 .drawer-header{
     padding: $drawer-header-padding;
     border-bottom: $drawer-header-border-width solid $drawer-header-border-color;
+
+    .form-group{
+        margin-bottom: 0;
+    }
 }
 
 .drawer-footer{

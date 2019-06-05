@@ -101,6 +101,10 @@
   border-bottom: 1px solid #dee2e6;
 }
 
+.drawer-header .form-group {
+  margin-bottom: 0;
+}
+
 .drawer-footer {
   padding: 1rem;
   border-top: 1px solid #dee2e6;

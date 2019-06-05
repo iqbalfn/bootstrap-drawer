@@ -398,7 +398,7 @@
 
       this._element.setAttribute('aria-modal', true);
 
-      if ($(this._content).hasClass(ClassName.SCROLLABLE)) this._content.querySelector(Selector.MODAL_BODY).scrollTop = 0;else this._element.scrollTop = 0;
+      if ($(this._content).hasClass(ClassName.SCROLLABLE)) (this._content.querySelector(Selector.MODAL_BODY) || {}).scrollTop = 0;else this._element.scrollTop = 0;
       if (transition) Util.reflow(this._element);
       $(this._element).addClass(ClassName.SHOW);
       if (this._config.focus) this._enforceFocus();
