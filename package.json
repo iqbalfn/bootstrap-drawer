@@ -34,7 +34,7 @@
   "homepage": "https://github.com/iqbalfn/bootstrap-drawer#readme",
   "devDependencies": {
     "@babel/core": "^7.4.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
     "@babel/preset-env": "^7.4.4",
     "autoprefixer": "^9.5.1",
     "babel-plugin-istanbul": "^5.1.4",
